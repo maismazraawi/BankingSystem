@@ -1,5 +1,5 @@
 from account import Account, Savings, Checking, Transfer
-
+import requests
 
 #for a collection of accounts
 class Bank:
@@ -60,7 +60,7 @@ bank = Bank()
 acount1 = bank.add_account(account_holder=1, balance=200, account_type='savings')
 acount2 = bank.add_account(account_holder=2, balance=200, account_type='checking')
 
-bank.withdraw(account_holder=1, amount=50)
+bank.withdraw(account_holder=1, amount=350)
 bank.add_interest(account_holder=1)
 
 bank.deposit(account_holder=2, amount=50)
@@ -68,3 +68,7 @@ bank.add_interest(account_holder=2)
 
 bank.transfer(sender=1, receiver=2, amount=100)
 bank.check_balance(account_holder=2)
+
+response = requests.get('https://api.github.com')
+print(response.status_code)
+#print(response.json())
